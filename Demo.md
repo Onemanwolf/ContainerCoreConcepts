@@ -187,11 +187,78 @@
 
 # Docker Build Demo
 
-1. Create Resource Group.
+1.  Navigate the app folder
+    `cd samples/aspnetapp/aspnetapp`.
+    .
 
-   ### Console
+    ### Console
 
-   ```Shell
-          az group create  --name   dockerdemoregistry-rg     --location eastus
+    ```Shell
+           cd samples/aspnetapp/aspnetapp
 
-   ```
+
+    ```
+
+2.  Run app local.
+
+    ### Console
+
+    ```Shell
+
+           dotnet run
+
+    ```
+
+3.  Navigate to Web page
+    `https://localhost:5001/`
+
+        ### Browser
+
+    ```Shell
+
+           https://localhost:5001/
+
+    ```
+
+4.  Change directory `C:\DockerDemo\ExampleCode\dotnet-docker\samples\aspnetapp\aspnetapp>cd..`.
+
+    ### Console
+
+    ```Shell
+
+          C:\DockerDemo\ExampleCode\dotnet-docker\samples\aspnetapp\aspnetapp>cd..
+    ```
+
+5.  Build image.
+
+    ### Console
+
+    ```Shell
+
+           docker build -t aspnetapp .
+
+    ```
+
+6.  Run container.
+
+    ### Console
+
+    ```Shell
+
+           docker run -it --rm -p 5000:80 --name aspnetcore_sample aspnetapp
+
+    ```
+
+    > Note:--rm Automatically remove the container when it exits
+
+7.  View app in the browser.
+
+    ### Browser
+
+    ```Shell
+
+
+     http://localhost:5000
+
+
+    ```
