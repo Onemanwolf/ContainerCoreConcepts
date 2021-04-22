@@ -69,7 +69,7 @@
        docker-compose down
    ```
 
-### [Docs Tutorial](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app)
+### [Docker Compose Tutorial](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app)
 
 # Docker Registry Demo
 
@@ -77,112 +77,121 @@
 
    ### Console
 
-```Shell
-       az group create --name dockerdemoregistry-rg --location eastus
+   ```Shell
+          az group create  --name   dockerdemoregistry-rg     --location eastus
 
-```
+   ```
 
 2. Create ACR.
 
    ### Console
 
-```Shell
-       az acr create --resource-group dockerdemoregistry-rg --name dockerdemoacr01 --sku Basic
+   ```Shell
+          az acr create    --resource-group   dockerdemoregistry-rg     --name  dockerdemoacr01 --sku    Basic
 
-```
+   ```
 
 3. Login To ACR.
 
    ### Console
 
-```Shell
-       az acr login --name dockerdemoacr01
+   ```Shell
+          az acr login --name  dockerdemoacr01
 
-```
+   ```
 
-3. Tag Image local copy.
-
-   ### Console
-
-```Shell
-
-       docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 dockerdemoacr01.azurecr.io/azure-vote-front:v1   (change v1 to v2)
-
-```
-
-4. Find ACR to push Image to.
-
-   4a.Get list of ACR login servers.
-
-### Console
-
-```Shell
-
-       az acr list --resource-group gap-rg --query "[].{acrLoginServer:loginServer}" --output table
-
-
-```
-
-### Output
-
-```Shell
-
-       dockerdemoacr01.azurecr.io
-
-```
-
-    4.b Get list of images local.
-
-### Console
-
-```Shell
-
-       docker images
-
-```
-
-### Output
-
-```Shell
-
-       REPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZE
-mcr.microsoft.com/azuredocs/azure-vote-front    v1                  84b41c268ad9        16 minutes ago      944MB
-mycontainerregistry.azurecr.io/azure-vote-front v1                  84b41c268ad9        16 minutes ago      944MB
-mcr.microsoft.com/oss/bitnami/redis             6.0.8               3a54a920bb6c        2 days ago          103MB
-tiangolo/uwsgi-nginx-flask                      python3.6           a16ce562e863        6 weeks ago         944MB
-
-```
-
-5. Push Image to ACR.
+4. Tag Image local copy.
 
    ### Console
 
-```Shell
+   ```Shell
 
-       docker push dockerdemoacr01.azurecr.io/azure-vote-front:v1
+          docker tag mcr.  microsoft.com/    azuredocs/  azure-vote-front:v1   dockerdemoacr01.  azurecr.io/   azure-vote-front:v1    (change v1 to v2)
 
-```
+   ```
 
-6. List images in ACR.
+5. Find ACR to push Image to.
 
-### Console
+   5a.Get list of ACR login servers.
 
-```Shell
+   ### Console
 
-       az acr repository list --name  dockerdemoacr01
- --output table
+   ```Shell
+
+          az acr list  --resource-group     gap-rg --query "[]. {acrLoginServer:loginS   erver}" --output table
+
+   ```
+
+   ### Output
+
+   ```Shell
+
+          dockerdemoacr01. azurecr.io
+
+   ```
+
+   5b. Get list of images local.
+
+   ### Console
+
+   ```Shell
+
+          docker images
+
+   ```
+
+   ### Output
+
+   ```Shell
+
+          REPOSITORY                                           TAG                  IMAGE ID             CREATED              SIZE
+   mcr.microsoft.com/azuredocs/    azure-vote-front        v1                      84b41c268ad9        16  minutes ago      944MB
+   mycontainerregistry.azurecr.    io/azure-vote-front     v1                      84b41c268ad9        16  minutes ago      944MB
+   mcr.microsoft.com/oss/  bitnami/redis             6.  0.8                   3a54a920bb6c        2 days  ago          103MB
+   tiangolo/   uwsgi-nginx-flask                        python3.    6               a16ce562e863        6 weeks     ago         944MB
+
+   ```
+
+6. Push Image to ACR.
+
+   ### Console
+
+   ```Shell
+
+          docker push  dockerdemoacr01. azurecr.io/  azure-vote-front:v1
+
+   ```
+
+7. List images in ACR.
+
+   ### Console
+
+   ```Shell
+
+          az acr repository    list --name    dockerdemoacr01
+    --output table
 
 
-```
+   ```
 
-7. List image tags.
+8. List image tags.
 
-### Console
+   ### Console
 
-```Shell
+   ```Shell
 
-       az acr repository show-tags --name dockerdemoacr01 --repository azure-vote-front --output table
+          az acr repository    show-tags --name   dockerdemoacr01   --repository  azure-vote-front     --output table
+   ```
 
+   ### [ACR Tutorial](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app)
 
+# Docker Build Demo
 
-```
+1. Create Resource Group.
+
+   ### Console
+
+   ```Shell
+          az group create  --name   dockerdemoregistry-rg     --location eastus
+
+   ```
