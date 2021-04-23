@@ -118,7 +118,7 @@
 
    ```Shell
 
-          az acr list  --resource-group     gap-rg --query "[]. {acrLoginServer:loginS   erver}" --output table
+          az acr list --resource-group dockerdemoregistry-rg --query "[].{acrLoginServer:loginServer}" --output table
 
    ```
 
