@@ -37,7 +37,7 @@
 
    ### Console
 
-   ```Console
+   ```Console 
        docker-compose up –d
    ```
 
@@ -167,11 +167,8 @@
    ### Console
 
    ```Shell
-
-          az acr repository    list --name    dockerdemoacr01
-    --output table
-
-
+   
+          az acr repository list --name dockerdemoacr01 --output table
    ```
 
 8. List image tags.
