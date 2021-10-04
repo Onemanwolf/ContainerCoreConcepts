@@ -217,13 +217,13 @@
 
     ```
 
-4.  Change directory `C:\DockerDemo\ExampleCode\dotnet-docker\samples\aspnetapp\aspnetapp>cd..`.
+4.  Change directory `C:\DockerDemo\ExampleCode\dotnet-docker\samples\aspnetapp\aspnetapp> cd..`.
 
     ### Console
 
     ```Shell
 
-          C:\DockerDemo\ExampleCode\dotnet-docker\samples\aspnetapp\aspnetapp>cd..
+          C:\DockerDemo\ExampleCode\dotnet-docker\samples\aspnetapp\aspnetapp> cd..
     ```
 
 5.  Build image.
