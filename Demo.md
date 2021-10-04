@@ -14,7 +14,7 @@
    ### Console
 
    ```Console
-      cd DockerDemo|ExampleCode\
+      cd DockerDemo\ExampleCode\
    ```
 
 3. Clone code from git repo with command `git clone https://github.com/Azure-Samples/azure-voting-app-redis.git`.
